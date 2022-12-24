@@ -1,6 +1,5 @@
 #root {
   --pointSize: 30px;
-  --halfPointSize: calc(var(--pointSize/2)px);
   margin: 0 auto;
   text-align: center;
 }

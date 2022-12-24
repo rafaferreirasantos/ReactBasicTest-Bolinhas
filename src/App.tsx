@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import './App.css'
+import Ball from "./components/ball"
 
-interface pointProps {
+export interface pointProps {
   x: number,
   y: number
 }
-
 
 function App() {
   const [points, setPoints] = useState<pointProps[]>([])
@@ -14,7 +14,6 @@ function App() {
   function handleClick(e: React.MouseEvent) {
     const { clientX, clientY } = e;
     setPoints([...points, { x: clientX, y: clientY }])
-
     setRedoList([]);
   }
 
@@ -46,14 +45,7 @@ function App() {
       </div>
       <div className="App" onClick={handleClick}>
         {points.map((point: pointProps, index) => {
-          return <div
-            className="point"
-            key={index}
-            style={{
-              left: point.x,
-              top: point.y,
-              position: 'absolute'
-            }}></div>
+          return <Ball x={point.x} y={point.y} index={index} />
         })}
       </div>
     </>
